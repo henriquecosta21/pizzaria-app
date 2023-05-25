@@ -15,13 +15,13 @@ class AuthUserService{
         })
 
         if (!user) {
-            throw new Error("User/password incorrect")
+            throw new Error("Email incorrect")
         }
 
         // Preciso verificar se a senha que ele mandou está correta
         const passwordMatch = await compare(password, user.password)
         if (!passwordMatch) {
-            throw new Error("User/password incorrect")
+            throw new Error("Password incorrect")
         }
 
         // Se deu tudo certo, gerar um token para o usuário
